@@ -74,8 +74,4 @@ app.post("/store-info", async (req, res) => {
     }
 });
 
-app.listen(5001, () => {
-    console.log("Server is running in 5001");
-});
-
 console.log("After listening");
