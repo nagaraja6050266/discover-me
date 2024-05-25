@@ -85,7 +85,7 @@ function PostQuestion() {
         let result;
 
         try {
-            result = await fetch("http://localhost:5001/store-info", {
+            result = await fetch("https://discover-inr-api.vercel.app/store-info", {
                 method: "post",
                 body: JSON.stringify({ name, answerArray, score }),
                 headers: {

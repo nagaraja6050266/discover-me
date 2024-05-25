@@ -12,7 +12,7 @@ function Result() {
     useEffect(() => {
         const getResults = async () => {
             try {
-                const data = await fetch("http://localhost:5001/result", {
+                const data = await fetch("https://discover-inr-api.vercel.app/result", {
                     method: "get",
                     headers: {
                         "Content-Type": "application/json",
