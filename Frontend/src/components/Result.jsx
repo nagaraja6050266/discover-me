@@ -18,6 +18,7 @@ function Result() {
                         "Content-Type": "application/json",
                         "Access-Control-Allow-Origin":"*"
                     },
+                    mode: 'no-cors'
                 });
                 setResults(await data.json());
             } catch (error) {
