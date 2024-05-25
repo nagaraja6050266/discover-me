@@ -16,6 +16,7 @@ function Result() {
                     method: "get",
                     headers: {
                         "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin":"*"
                     },
                 });
                 setResults(await data.json());
