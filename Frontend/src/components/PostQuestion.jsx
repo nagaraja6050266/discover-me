@@ -91,6 +91,7 @@ function PostQuestion() {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                mode: "no-cors"
             });
         } catch (error) {
             console.log("Error while posting");
