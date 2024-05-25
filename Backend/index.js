@@ -74,6 +74,7 @@ app.post("/store-info", async (req, res) => {
     }
 });
 
-app.listen(5000);
+//app.listen(5000);
 
 console.log("After listening");
+module.exports = app;
