@@ -15,8 +15,7 @@ function Result() {
                 const data = await fetch("https://discover-me-api.vercel.app/result", {
                     method: "get",
                     headers: {
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Origin":"*"
+                        "Content-Type": "application/json"
                     },
                     mode: 'no-cors'
                 });
