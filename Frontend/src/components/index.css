@@ -188,6 +188,7 @@ button:hover {
 .shake{
   animation: shake 0.3s;
   animation-iteration-count: infinite;
+  border: solid red 1.5px;
 }
 
 
