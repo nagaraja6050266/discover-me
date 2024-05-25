@@ -85,14 +85,16 @@ function PostQuestion() {
         let result;
 
         try {
+            console.log(JSON.stringify({ name, answerArray, score }));
             result = await fetch("https://discover-me-api.vercel.app/store-info", {
                 method: "post",
                 body: JSON.stringify({ name, answerArray, score }),
                 headers: {
                     "Content-Type": "application/json",
                 },
-                mode: "no-cors"
+               // mode: "no-cors"
             });
+            
         } catch (error) {
             console.log("Error while posting");
         }
