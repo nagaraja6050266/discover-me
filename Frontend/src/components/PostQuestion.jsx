@@ -92,7 +92,7 @@ function PostQuestion() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-               // mode: "no-cors"
+                mode: "no-cors"
             });
             
         } catch (error) {
