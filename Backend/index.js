@@ -6,7 +6,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(
     cors({
-        origin: ["https://discover-inr.vercel.app/"],
+        origin: ["https://discover-inr.vercel.app"],
         methods: ["POST", "GET"],
         credentials: true,
     })
