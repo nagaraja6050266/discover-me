@@ -1,0 +1,278 @@
+body {
+  background: linear-gradient(to right, #45a049,#b0f9b4);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.question-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.question-body{
+  text-align: center;
+}
+.question-body h1{
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.question-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.question-card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  max-width: 60%;
+  padding: 30px;
+}
+
+.question {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.option{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  flex: 1 1 45%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.option input {
+  margin-right: 10px;
+}
+
+.option label {
+  margin: 0;
+}
+
+.submit-button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-button:hover {
+  background: #45a049;
+}
+
+.info-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.info-container img {
+  max-width: 150px;
+  border-radius: 50%;
+  border: 5px solid #ddd;
+  z-index: 1;
+}
+
+.info-questions-container, .question-card {
+  background: hsl(123, 54%, 85%);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.question-card{
+  padding: 15px;
+}
+.info-questions-container{
+  padding: 40px;
+  max-width: 600px;
+  margin-top: -40px;
+}
+
+.info-questions-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.info-questions-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.info-questions-container input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+button {
+  background: #4caf50;
+  color: white;
+  border: solid 1.5px #4caf50;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: #45a049;
+  font-weight: 500;
+  background-color: white;
+}
+
+.question-cards button, .info-questions-container button{
+  border-radius: 10px;
+  margin-bottom: 5%;
+}
+
+
+button:hover {
+  background: #45a049;
+  color: white;
+}
+
+
+.own-result-container{
+  background-color: #ffffffa7;
+  margin: 30px 200px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items:center ;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.own-result-container h1{
+  font-size: 30px;
+  text-align: center;
+}
+
+.own-result-container h2{
+  font-size: 40px;
+}
+
+.all-participants{
+  font-size: 30px;
+  margin-left: 4%;
+}
+
+@keyframes shake {
+  0% {transform: translateX(0);}
+  25% {transform: translateX(-5px);}
+  50% {transform: translateX(5px);}
+  75% {transform: translateX(-5px);}
+  100% {transform: translateX(0);}
+}
+
+.shake{
+  animation: shake 0.3s;
+  animation-iteration-count: infinite;
+}
+
+
+
+/*
+
+.result-card{
+  background-color: #e7fde8;
+  margin: auto;
+  max-width: max-content;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.all-result-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+}*/
+
+.all-results-container {
+   background-color: #e7fde8;
+   margin:20px 30px;
+  border-radius: 15px;
+}
+
+.all-results-container h4{
+  position: absolute;
+  margin-right: 5%;
+  margin-left: 80%;
+}
+.result-card {
+  display: flex;
+  padding: 15px;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .info-container input{
+    width: 280px;
+  }
+  .info-questions-container{
+    padding: 0px;
+
+  }
+  .info-questions-container label{
+    margin-top: 40px;
+  }
+  .info-questions-container button{
+    margin-bottom: 20px;
+  }
+  .question-card{
+    max-width: 90%;
+  }
+  .question label, .option label{
+    font-size: 15px;
+  }
+  .own-result-container{
+    margin: 20px 10px;
+  }
+  .own-result-container h1{
+    font-size: 20px;
+  }
+  .own-result-container h2{
+    font-size: 35px;
+  }
+  .result-body h1{
+    
+    font-size: larger;
+  }
+  .all-results-container{
+    margin: 20px;
+  }
+  .result-card h3,.result-card h4{
+    font-size: large;
+  }
+
+  .result-card h4{
+    margin-left: 70%;
+  }
+  .all-participants{
+    margin-left: 7%;
+  }
+}
