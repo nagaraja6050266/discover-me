@@ -28,7 +28,7 @@ mongoose
   })
   .catch((error) => {
     console.error("Error connecting to MongoDB:", error);
-    process.exit(1); // Exit the server process on connection failure
+   // process.exit(1); // Exit the server process on connection failure
   });
 
 // Data Schema
