@@ -55,7 +55,7 @@ function PostQuestion() {
                     `input[name="${elementName}"]`
                 ).parentElement.parentElement.parentElement;
                 parentDiv.scrollIntoView({ behavior: "smooth" });
-                parentDiv.style.border = "solid red 1.5px";
+                //parentDiv.style.border = "solid red 1.5px";
                 parentDiv.classList.add("shake");
                 setTimeout(() => {
                     parentDiv.classList.remove("shake");
