@@ -69,7 +69,7 @@ function PostQuestion() {
             "All the above",
             "IPS",
             "Theatre",
-            "Brilliacne",
+            "Brilliance",
         ];
 
         function calculateScore() {
@@ -87,6 +87,7 @@ function PostQuestion() {
 
         calculateScore();
         console.log(JSON.stringify({ name, answerArray, score }));
+
         try {
             const response = await fetch(
                 "https://discover-me-api.vercel.app/store-info",
