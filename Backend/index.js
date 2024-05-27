@@ -64,10 +64,11 @@ app.get("/", async (req, res) => {
 
 app.get("/result", async (req, res) => {
     try {
-        const taste = await Taste.find({});
+        const taste = await Taste.sort({ score: -1 });
         res.json(taste);
     } catch (err) {
         handleError(err, res);
+        console.log("Error is ", err);
     }
 });
 
