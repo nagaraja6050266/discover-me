@@ -5,7 +5,7 @@ import ResultCard from "./ResultCard";
 function Result() {
     const location = useLocation();
     const { name, sendScore } = location.state || {};
-    const [results, setResults] = useState([]); //can share all using navigate
+    const [results, setResults] = useState([]); 
     const [resultText, setResultText] = useState("Your guess matcher with me");
     const [score, setScore] = useState(0);
 

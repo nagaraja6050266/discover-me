@@ -1,10 +1,8 @@
 import PropTypes from "prop-types";
 
 function ResultCard(props) {
-
     const name=props.name;
     const score=props.score;
-    console.log("Props are ", name, score);
     return (
         <div className="result-card">
             <h3>{name}</h3>

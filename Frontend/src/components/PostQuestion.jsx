@@ -6,7 +6,6 @@ function PostQuestion() {
     const navigate = useNavigate();
     const location = useLocation();
     const { name } = location.state || {};
-    console.log("Name is", name);
     const set = [
         {
             question: "His Favourite Person...?",
@@ -74,25 +73,17 @@ function PostQuestion() {
     
         function calculateScore() {
             for (var i = 0; i < correctAnswers.length; i++) {
-                console.log("Current Answer: ", answerArray[i]);
-                console.log("Correct Answer: ", correctAnswers[i]);
                 if (correctAnswers[i] === answerArray[i]) {
                     score++;
-                    console.log("Matched");
                 }
             }
-            console.log("Score ", score);
             score = (score / correctAnswers.length) * 100;
         }
-    
-        calculateScore();
-        const requestBody = { name, answerArray, score };
-        console.log("Request Body: ", JSON.stringify(requestBody));
-    
+        calculateScore();    
         try {
             const response = await fetch("https://discover-me-api.vercel.app/store-info", {
                 method: "POST",
-                body: JSON.stringify(requestBody),
+                body: JSON.stringify({ name, answerArray, score }),
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -102,8 +93,7 @@ function PostQuestion() {
                 throw new Error("Network response was not ok: " + errorText);
             }
             const data = await response.json();
-            console.log("Response stored successfully: ", data);
-            alert("Data stored");
+            alert("Now lets see the results...😉");
             navigate("/result", { state: { name, sendScore: score } });
         } catch (error) {
             console.log("Error while posting data: ", error);
