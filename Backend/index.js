@@ -84,7 +84,7 @@ app.post("/store-info", async (req, res) => {
     const savedTaste = await taste.save();
     if (savedTaste) {
       console.log("Successfully Stored");
-      res.send("Successfully Stored");
+      //res.send("Successfully Stored");
     }
   } catch (err) {
     // Handle specific errors (e.g., validation errors)
