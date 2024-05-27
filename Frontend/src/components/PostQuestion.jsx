@@ -99,12 +99,11 @@ function PostQuestion() {
             mode: "no-cors",
         })
             .then((response) => response.json())
-            .then((data) => {
-                console.log("Data stored successfully ", data);
+            .then((response) => {
+                console.log("response stored successfully ", response);
             })
             .catch((error) => {
-
-                console.log("Error while posting data ", data,error);
+                console.log("Error while posting data ", response, error);
             });
         if (result) {
             alert("Data stored");
