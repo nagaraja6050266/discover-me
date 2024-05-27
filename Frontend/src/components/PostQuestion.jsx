@@ -60,21 +60,27 @@ function PostQuestion() {
                 setTimeout(() => {
                     parentDiv.classList.remove("shake");
                 }, 800);
-                
+
                 //console.log(parentDiv);
                 return;
             }
         }
         let score = 0.0;
 
-        let correctAnswers = ["None of the Above","All the above","IPS","Theatre","Brilliacne"];
+        let correctAnswers = [
+            "None of the Above",
+            "All the above",
+            "IPS",
+            "Theatre",
+            "Brilliacne",
+        ];
         function calculateScore() {
             for (var i = 0; i < correctAnswers.length; i++) {
-                console.log('Current Answer: ',answerArray[i]);
-                console.log('Correct Answer: ',correctAnswers[i]);
+                console.log("Current Answer: ", answerArray[i]);
+                console.log("Correct Answer: ", correctAnswers[i]);
                 if (correctAnswers[i] == answerArray[i]) {
                     score++;
-                    console.log('Matched');
+                    console.log("Matched");
                 }
             }
             console.log("Score ", score);
@@ -83,24 +89,25 @@ function PostQuestion() {
 
         calculateScore();
         let result;
-
-        try {
-            console.log(JSON.stringify({ name, answerArray, score }));
-            result = await fetch("https://discover-me-api.vercel.app/store-info", {
-                method: "post",
-                body: JSON.stringify({ name, answerArray, score }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                mode: "no-cors"
+        console.log(JSON.stringify({ name, answerArray, score }));
+        result = await fetch("https://discover-me-api.vercel.app/store-info", {
+            method: "post",
+            body: JSON.stringify({ name, answerArray, score }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            mode: "no-cors",
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Data stored successfully ", data);
+            })
+            .catch((error) => {
+                console.log("Error while posting data ", error);
             });
-            
-        } catch (error) {
-            console.log("Error while posting");
-        }
         if (result) {
             alert("Data stored");
-            let sendScore=score;
+            let sendScore = score;
             navigate("/result", { state: { name, sendScore } });
         }
     }
