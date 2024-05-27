@@ -7,18 +7,20 @@ function Result() {
     const { name, sendScore } = location.state || {};
     const [results, setResults] = useState([]); //can share all using navigate
     const [resultText, setResultText] = useState("Your guess matcher with me");
-    const [score,setScore] = useState(0);
+    const [score, setScore] = useState(0);
 
     useEffect(() => {
         const getResults = async () => {
             try {
-                const data = await fetch("https://discover-me-api.vercel.app/result", {
-                    method: "get",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    mode: 'no-cors'
-                });
+                const data = await fetch(
+                    "https://discover-me-api.vercel.app/result",
+                    {
+                        method: "get",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
                 setResults(await data.json());
             } catch (error) {
                 console.log("Error while fetching");
