@@ -35,7 +35,38 @@ function PostQuestion() {
         },
         {
             question: "What could be his best personality trait...?",
-            options: ["Brilliance"],
+            options: ["Selfless", "Leadership", "Extrovert", "All the above"],
+        },
+        {
+            question: "Guess his birthday...?",
+            options: [
+                "18th Oct",
+                "25th Oct",
+                "28th September",
+                "None of the Above",
+            ],
+        },
+        {
+            question: "Who is his most favourite personality...?",
+            options: ["Vijay", "MS Dhoni", "Anirudh", "All the above"],
+        },
+        {
+            question: "For what he's always afraid of...?",
+            options: [
+                "Exam Results",
+                "Placements",
+                "All the above",
+                "None of the above",
+            ],
+        },
+        {
+            question:
+                "If not Engineering, what could be his future profession...?",
+            options: ["Teacher", "RJ", "Film Maker", "None of the above"],
+        },
+        {
+            question: "Rate his skills...!",
+            options: ["10", "8", "6", "4"],
         },
     ];
 
@@ -62,15 +93,20 @@ function PostQuestion() {
             }
         }
         let score = 0.0;
-    
+
         let correctAnswers = [
             "None of the Above",
             "All the above",
             "IPS",
             "Theatre",
-            "Brilliance",
+            "All the above",
+            "None of the Above",
+            "MS Dhoni",
+            "None of the above",
+            "RJ",
+            "8",
         ];
-    
+
         function calculateScore() {
             for (var i = 0; i < correctAnswers.length; i++) {
                 if (correctAnswers[i] === answerArray[i]) {
@@ -79,15 +115,18 @@ function PostQuestion() {
             }
             score = (score / correctAnswers.length) * 100;
         }
-        calculateScore();    
+        calculateScore();
         try {
-            const response = await fetch("https://discover-me-api.vercel.app/store-info", {
-                method: "POST",
-                body: JSON.stringify({ name, answerArray, score }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+            const response = await fetch(
+                "https://discover-me-api.vercel.app/store-info",
+                {
+                    method: "POST",
+                    body: JSON.stringify({ name, answerArray, score }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
             if (!response.ok) {
                 const errorText = await response.text(); // Capture the response text for detailed error info
                 throw new Error("Network response was not ok: " + errorText);
@@ -99,8 +138,6 @@ function PostQuestion() {
             console.log("Error while posting data: ", error);
         }
     }
-    
-    
 
     return (
         <div className="question-body">
