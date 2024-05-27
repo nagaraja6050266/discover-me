@@ -78,7 +78,7 @@ app.get("/result", async (req, res) => {
 
 app.post("/store-info", async (req, res) => {
   try {
-    console.log(req.body);
+    console.log("Request Body:", req.body); // Detailed logging
     const taste = new Taste(req.body);
     const savedTaste = await taste.save();
     if (savedTaste) {

@@ -99,7 +99,8 @@ function PostQuestion() {
                 mode: "no-cors"
             });
             if (!response.ok) {
-                throw new Error("Network response was not ok " + response.statusText);
+                const errorText = await response.text(); // Capture the response text for detailed error info
+                throw new Error("Network response was not ok: " + errorText);
             }
             const data = await response.json();
             console.log("Response stored successfully: ", data);
@@ -109,6 +110,7 @@ function PostQuestion() {
             console.log("Error while posting data: ", error);
         }
     }
+    
     
 
     return (
