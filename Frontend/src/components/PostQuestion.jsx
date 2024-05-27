@@ -103,7 +103,8 @@ function PostQuestion() {
                 console.log("Data stored successfully ", data);
             })
             .catch((error) => {
-                console.log("Error while posting data ", error);
+
+                console.log("Error while posting data ", data,error);
             });
         if (result) {
             alert("Data stored");
