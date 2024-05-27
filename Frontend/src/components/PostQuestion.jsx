@@ -63,7 +63,7 @@ function PostQuestion() {
             }
         }
         let score = 0.0;
-
+    
         let correctAnswers = [
             "None of the Above",
             "All the above",
@@ -71,7 +71,7 @@ function PostQuestion() {
             "Theatre",
             "Brilliance",
         ];
-
+    
         function calculateScore() {
             for (var i = 0; i < correctAnswers.length; i++) {
                 console.log("Current Answer: ", answerArray[i]);
@@ -84,26 +84,21 @@ function PostQuestion() {
             console.log("Score ", score);
             score = (score / correctAnswers.length) * 100;
         }
-
+    
         calculateScore();
-        console.log(JSON.stringify({ name, answerArray, score }));
-
+        const requestBody = { name, answerArray, score };
+        console.log("Request Body: ", JSON.stringify(requestBody));
+    
         try {
-            const response = await fetch(
-                "https://discover-me-api.vercel.app/store-info",
-                {
-                    method: "POST",
-                    body: JSON.stringify({ name, answerArray, score }),
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    mode: "no-cors"
-                }
-            );
+            const response = await fetch("https://discover-me-api.vercel.app/store-info", {
+                method: "POST",
+                body: JSON.stringify(requestBody),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
             if (!response.ok) {
-                throw new Error(
-                    "Network response was not ok " + response.statusText
-                );
+                throw new Error("Network response was not ok " + response.statusText);
             }
             const data = await response.json();
             console.log("Response stored successfully: ", data);
@@ -113,6 +108,7 @@ function PostQuestion() {
             console.log("Error while posting data: ", error);
         }
     }
+    
 
     return (
         <div className="question-body">
