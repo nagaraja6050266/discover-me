@@ -96,7 +96,6 @@ function PostQuestion() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                mode: "no-cors"
             });
             if (!response.ok) {
                 const errorText = await response.text(); // Capture the response text for detailed error info
