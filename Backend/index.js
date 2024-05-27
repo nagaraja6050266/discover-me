@@ -35,17 +35,17 @@ mongoose
 const TasteSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    //required: true,
   },
   answerArray: [
     {
       type: String,
-      required: true,
+      //required: true,
     },
   ],
   score: {
     type: Number,
-    required: true,
+    //required: true,
   },
 });
 
