@@ -35,8 +35,8 @@ function PostQuestion() {
             ],
         },
         {
-            question: "What could be his best personility trait...?",
-            options: ["Brilliacne"],
+            question: "What could be his best personality trait...?",
+            options: ["Brilliance"],
         },
     ];
 
@@ -55,13 +55,10 @@ function PostQuestion() {
                     `input[name="${elementName}"]`
                 ).parentElement.parentElement.parentElement;
                 parentDiv.scrollIntoView({ behavior: "smooth" });
-                //parentDiv.style.border = "solid red 1.5px";
                 parentDiv.classList.add("shake");
                 setTimeout(() => {
                     parentDiv.classList.remove("shake");
                 }, 800);
-
-                //console.log(parentDiv);
                 return;
             }
         }
@@ -74,11 +71,12 @@ function PostQuestion() {
             "Theatre",
             "Brilliacne",
         ];
+
         function calculateScore() {
             for (var i = 0; i < correctAnswers.length; i++) {
                 console.log("Current Answer: ", answerArray[i]);
                 console.log("Correct Answer: ", correctAnswers[i]);
-                if (correctAnswers[i] == answerArray[i]) {
+                if (correctAnswers[i] === answerArray[i]) {
                     score++;
                     console.log("Matched");
                 }
@@ -88,27 +86,29 @@ function PostQuestion() {
         }
 
         calculateScore();
-        let result;
         console.log(JSON.stringify({ name, answerArray, score }));
-        result = await fetch("https://discover-me-api.vercel.app/store-info", {
-            method: "post",
-            body: JSON.stringify({ name, answerArray, score }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-            mode: "no-cors",
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                console.log("response stored successfully ", response);
-            })
-            .catch((error) => {
-                console.log("Error while posting data ", response, error);
-            });
-        if (result) {
+        try {
+            const response = await fetch(
+                "https://discover-me-api.vercel.app/store-info",
+                {
+                    method: "POST",
+                    body: JSON.stringify({ name, answerArray, score }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            if (!response.ok) {
+                throw new Error(
+                    "Network response was not ok " + response.statusText
+                );
+            }
+            const data = await response.json();
+            console.log("Response stored successfully: ", data);
             alert("Data stored");
-            let sendScore = score;
-            navigate("/result", { state: { name, sendScore } });
+            navigate("/result", { state: { name, sendScore: score } });
+        } catch (error) {
+            console.log("Error while posting data: ", error);
         }
     }
 
