@@ -9,7 +9,7 @@ function PostQuestion() {
     const set = [
         {
             question: "His Favourite Person...?",
-            options: ["Siva", "Mani", "Bala", "None of the Above"],
+            options: ["Siva", "Mani", "Bala", "IYKYK"],
         },
         {
             question: "Which role suits him the most...?",
@@ -65,8 +65,8 @@ function PostQuestion() {
             options: ["Teacher", "RJ", "Film Maker", "None of the above"],
         },
         {
-            question: "Rate his skills...!",
-            options: ["10", "8", "6", "4"],
+            question: "What field does he have the most knowledge in...?",
+            options: ["Cinema", "Coding", "Music", "Teaching"],
         },
     ];
 
@@ -95,7 +95,7 @@ function PostQuestion() {
         let score = 0.0;
 
         let correctAnswers = [
-            "None of the Above",
+            "IYKYK",
             "All the above",
             "IPS",
             "Theatre",
@@ -104,7 +104,7 @@ function PostQuestion() {
             "MS Dhoni",
             "None of the above",
             "RJ",
-            "8",
+            "Cinema",
         ];
 
         function calculateScore() {
