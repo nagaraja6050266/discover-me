@@ -64,7 +64,7 @@ function Result() {
             <h1 className="all-participants">All Participants:</h1>
             <div className="all-results-container">
                 {results.map((r, i) => (
-                    <ResultCard key={i} name={r.name} score={r.score} />
+                    <ResultCard key={i} index={i+1} name={r.name} score={r.score} />
                 ))}
             </div>
         </div>

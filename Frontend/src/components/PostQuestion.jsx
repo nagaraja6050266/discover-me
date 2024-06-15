@@ -67,7 +67,7 @@ function PostQuestion() {
         {
             question: "What field does he have the most knowledge in...?",
             options: ["Cinema", "Coding", "Music", "Teaching"],
-        },
+        }
     ];
 
     async function handleSubmit(event) {

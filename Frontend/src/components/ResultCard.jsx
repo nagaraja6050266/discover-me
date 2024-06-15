@@ -1,12 +1,10 @@
 import PropTypes from "prop-types";
 
 function ResultCard(props) {
-    const name=props.name;
-    const score=props.score;
     return (
         <div className="result-card">
-            <h3>{name}</h3>
-            <h4>{score}%</h4>
+            <h3>{props.index}{props.name}</h3>
+            <h4>{props.score}%</h4>
         </div>
     );
 }
